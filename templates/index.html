@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Predict App</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+  <img src="../static/css/images/orange.png" class="logo" alt="Logo">
+  <div class="login">
+    <h1>Prédiction du segment du client </h1>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <table>
+        <tr>
+          <td>
+            <select name="V1" required="required">
+              <option value="Campus Sfax">Campus Sfax</option>
+              <option value="Campus Tunis">Campus Tunis</option>
+            </select>
+          </td>
+          <td><input type="text" name="V3" placeholder="V3" required="required" /></td>
+          <td>
+            <select name="V4" required="required">
+              <option value="Grand public">Grand public</option>
+              <option value="Convention">Convention</option>
+              <option value="Convention Splittee">Convention Splittee</option>
+              <option value="Entreprise">Entreprise</option>
+              <option value="Grand compte">Grand compte</option>
+              <option value="Pro">Pro</option>
+              <option value="VIP">VIP</option>
+              <option value="Prepaid">Prepaid</option>
+              <option value="PME boutique">PME boutique</option>
+              <option value="Staff">Staff</option>
+              <option value="Test">Test</option>
+              <option value="Partenaires">Partenaires</option>
+              <option value="Internet GP">Internet GP</option>
+            </select>
+          </td>
+          <td><input type="text" name="V5" placeholder="V5" required="required" /></td>
+           
+        </tr>
+        <tr>
+         
+        
+          
+          <td>
+            <select id="v7" name="v7" required>
+                <option value="Phablet">Phablet</option>
+                <option value="Smartphone">Smartphone</option>
+                <option value="Basic Phone">Basic Phone</option>
+                <option value="NaN">NaN</option>
+                <option value="Feature Phone">Feature Phone</option>
+                <option value="Router">Router</option>
+                <option value="Tablet">Tablet</option>
+                <option value="Mobile broadband PCI card">Mobile broadband PCI card</option>
+                <option value="USB Modem">USB Modem</option>
+                <option value="Wearable">Wearable</option>
+                <option value="IoT Device">IoT Device</option>
+            </select><br>
+          </td>
+          <td>
+            <select name="V8" required="required">
+              <option value="SFA_0066">SFA_0066</option>
+              <option value="SFA_0130">SFA_0130</option>
+              <option value="SFA_0147">SFA_0147</option>
+              <option value="SFA_0046">SFA_0046</option>
+              <option value="TUN_0111">TUN_0111</option>
+              <option value="TUN_0039">TUN_0039</option>
+              <option value="TUN_0070">TUN_0070</option>
+              <option value="TUN_0104">TUN_0104</option>
+              <option value="TUN_0037">TUN_0037</option>
+              <option value="TUN_0038">TUN_0038</option>
+              <option value="TUN_0198">TUN_0198</option>
+              <option value="ARI_0042">ARI_0042</option>
+              <option value="TUN_0115">TUN_0115</option>
+              <option value="TUN_0220">TUN_0220</option>
+              <option value="TUN_0028">TUN_0028</option>
+              <option value="ARI_0101">ARI_0101</option>
+              <option value="TUN_0321">TUN_0321</option>
+            </select>
+          </td>
+          <td><input type="text" name="V9" placeholder="V9" /></td>
+          <td><input type="number" name="V10" placeholder="V10" pattern="\d+" /></td>
+          
+        </tr>
+        <tr>
+          
+          <td><input type="text" name="V11" placeholder="V11" pattern="\d+" /></td>
+          <td><input type="text" name="V12" placeholder="V12" pattern="\d+" /></td>
+          <td><input type="number" name="V13" placeholder="V13" pattern="\d+" /></td>
+          <td><input type="number" name="V14" placeholder="V14" pattern="\d+" /></td>
+          
+        </tr>
+        <tr>
+          
+          <td><input type="number" name="V15" placeholder="V15" pattern="\d+" /></td>
+          <td><input type="number" name="V16" placeholder="V16" pattern="\d+" /></td>
+          <td><input type="number" name="V17" placeholder="V17" pattern="\d+" /></td>
+           <td><input type="text" name="V18" placeholder="V18" pattern="\d+" /></td>
+          
+        </tr>
+        <tr>
+         
+          <td><input type="text" name="V19" placeholder="V19" pattern="\d+" /></td>
+          <td><input type="text" name="V20" placeholder="V20" pattern="\d+" /></td>
+          <td><input type="text" name="V21" placeholder="V21" pattern="\d+" /></td>
+         <td><input type="text" name="V22" placeholder="V22" pattern="\d+" /></td>
+          
+        </tr>
+        <tr>
+          
+          <td><input type="text" name="V23" placeholder="V23" pattern="\d+" /></td>
+          <td><input type="text" name="V24" placeholder="V24" pattern="\d+" /></td>
+          <td><input type="text" name="V25" placeholder="V25" pattern="\d+" /></td>
+          <td><input type="text" name="V26" placeholder="V26" pattern="\d+"  /></td>
+          
+        </tr>
+        <tr>
+          <td><input type="number" name="V27" placeholder="V27" pattern="\d+" /></td>
+            <td><input type="number" name="V28" placeholder="V28" pattern="\d+" /></td>
+            <td><input type="text" name="V29" placeholder="V29" pattern="\d+" /></td>
+            <td><input type="text" name="V30" placeholder="V30" pattern="\d+"  /></td></tr>
+           
+        </td>
+        <tr>
+          <tr>
+            <td style="text-align: right;">
+              <label for="V6">V6 :  </label>
+            </td>
+            <td colspan="3" style="text-align: left;">
+              <div class="radio-group">
+                <input type="radio" id="V6_0" name="V6" value="0" required>
+                <label for="V6_0">0</label>
+                <input type="radio" id="V6_1" name="V6" value="1" required>
+                <label for="V6_1">1</label>
+              </div>
+            </td>
+          </tr>
+          
+          
+          
+          
+
+        </tr>
+            <table style="width: 100%; height: 100%;">
+              <tr>
+                  <td style="width: 100%; height: 100%; text-align: center; vertical-align: middle;">
+                    <button type="submit" class="btn btn-primary btn-large">Predict</button>
+
+                  </td>
+              </tr>
+              
+          </table>
+          
+          
+          
+          </tr>
+        </table>
+      </form>
+      
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <span class="close" onclick="document.getElementById('popup').style.display='none'">&times;</span>
+          <h2 style="color: black;">le segment de ce client est</h2>
+          <p id="modal-text" style="color: black;">{{ prediction_text }}</p>
+          <button id="details-btn" class="btn btn-primary">Information de ce segment</button>
+          <div id="cluster-details" style="display:none;">
+            <p id="cluster-info" style="color: black;">{{ cluster_info }}</p>
+          </div>
+        </div>
+      </div>
+    
+      <!-- JavaScript pour gérer l'affichage des détails du cluster -->
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var predictionText = "{{ prediction_text }}";
+          if (predictionText.trim() !== "") {
+            document.getElementById('popup').style.display = 'block';
+          }
+        });
+        
+        document.getElementById('details-btn').addEventListener('click', function() {
+          document.getElementById('cluster-details').style.display = 'block';
+        });
+      </script>
+      
+    </body>
+    </html>
