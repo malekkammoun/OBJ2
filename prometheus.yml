@@ -2,8 +2,6 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
-  - job_name: 'prometheus'
+  - job_name: 'flask_app'
     static_configs:
-      - targets: ['prometheus:9090']
-  
-  # Ajoutez ici d'autres configurations de scrape pour vos services
+      - targets: ['deploiement-web-1:5000']
